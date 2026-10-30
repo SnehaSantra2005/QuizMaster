@@ -47,3 +47,6 @@ Thumbs.db
 
 # Editor
 .vscode/
+
+# Uploaded user files
+backend/uploads/
