@@ -1,0 +1,589 @@
+/* ================================
+   STUDENT PROFILE - LIGHT MODE
+================================ */
+
+.student-profile-page {
+    min-height: 100vh;
+    padding: 35px 20px 60px;
+    background: #f5f7fb;
+    color: #20243a;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.profile-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.profile-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.profile-back-btn,
+.profile-logout-btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.profile-back-btn {
+    border: 1px solid #dce0eb;
+    background: white;
+    color: #333952;
+}
+
+.profile-back-btn:hover {
+    background: #eeecff;
+    border-color: #7768e9;
+}
+
+.profile-logout-btn {
+    border: none;
+    background: #fff0f0;
+    color: #dc4141;
+}
+
+.profile-logout-btn:hover {
+    background: #ffe0e0;
+}
+
+.profile-heading {
+    margin-bottom: 25px;
+}
+
+.profile-heading h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.profile-heading p {
+    color: #777e91;
+    font-size: 14px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 5px 25px rgba(30, 40, 80, 0.06);
+    transition: background 0.3s ease;
+}
+
+/* ================================
+   PROFILE HEADER AND AVATAR
+================================ */
+
+.profile-user-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.profile-avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6558e8, #9885ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 4px solid #eeecff;
+    box-shadow: 0 4px 14px rgba(101, 88, 232, 0.18);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-photo-btn {
+    border: none;
+    background: #eeecff;
+    color: #6254d9;
+    padding: 8px 13px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.profile-photo-btn:hover {
+    background: #dedaff;
+}
+
+.profile-photo-remove-btn {
+    background: transparent;
+    border: none;
+    color: #dc4141;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-photo-remove-btn:hover {
+    text-decoration: underline;
+}
+
+.profile-photo-btn:disabled,
+.profile-photo-remove-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.profile-photo-hint {
+    color: #9298a8;
+    font-size: 11px;
+    margin: 12px 0 0;
+}
+
+.profile-user-details {
+    min-width: 0;
+}
+
+.profile-user-header h2 {
+    margin: 0 0 6px;
+    font-size: 21px;
+    word-break: break-word;
+}
+
+.profile-user-header p {
+    margin: 0 0 8px;
+    color: #7b8192;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.profile-role {
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 20px;
+    background: #eeecff;
+    color: #6254d9;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ================================
+   PROFILE SECTIONS
+================================ */
+
+.profile-section {
+    padding: 28px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.profile-section:last-child {
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+
+.profile-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.profile-section h3 {
+    margin: 0 0 7px;
+    font-size: 18px;
+}
+
+.profile-section-heading p,
+.profile-section-description {
+    margin: 0 0 20px;
+    color: #858b9b;
+    font-size: 13px;
+}
+
+.profile-edit-btn {
+    background: #eeecff;
+    color: #6254d9;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.profile-edit-btn:hover {
+    background: #dedaff;
+}
+
+/* ================================
+   FORM FIELDS
+================================ */
+
+.profile-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.profile-form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #53596c;
+}
+
+.profile-form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #e0e3ec;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+    color: #30354b;
+    transition: 0.2s ease;
+}
+
+.profile-form-group input:focus {
+    border-color: #7768e9;
+    box-shadow: 0 0 0 3px rgba(119, 104, 233, 0.1);
+}
+
+.profile-form-group input:disabled {
+    background: #f7f8fb;
+    color: #777e91;
+    cursor: not-allowed;
+}
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.profile-action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.profile-save-btn,
+.profile-cancel-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.profile-save-btn {
+    background: #6558e8;
+    color: white;
+}
+
+.profile-save-btn:hover {
+    background: #5144d0;
+}
+
+.profile-save-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.profile-cancel-btn {
+    background: #f0f1f6;
+    color: #555b6e;
+}
+
+.profile-cancel-btn:hover {
+    background: #e3e5ed;
+}
+
+/* ================================
+   ACCOUNT INFORMATION
+================================ */
+
+.profile-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 14px 0 5px;
+    font-size: 14px;
+}
+
+.profile-info-row span {
+    color: #858b9b;
+}
+
+.profile-info-row strong {
+    color: #30354b;
+}
+
+/* ================================
+   SUCCESS AND ERROR MESSAGES
+================================ */
+
+.profile-success {
+    color: #16844a;
+    background: #eaf8f0;
+    padding: 11px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.profile-error {
+    color: #d43c3c;
+    background: #fff0f0;
+    padding: 11px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.profile-google-note {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f3f1ff;
+    color: #5b50bd;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ================================
+   LOADING
+================================ */
+
+.profile-loading {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: #6558e8;
+    font-weight: 600;
+}
+
+.profile-loading button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #6558e8;
+    color: white;
+    cursor: pointer;
+}
+
+/* ================================
+   DARK MODE
+   Works when parent has .dark-mode
+================================ */
+
+.dark-mode .student-profile-page {
+    background: #151827;
+    color: #f1f2fa;
+}
+
+.dark-mode .profile-card {
+    background: #202438;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.18);
+}
+
+.dark-mode .profile-heading p,
+.dark-mode .profile-section-heading p,
+.dark-mode .profile-section-description {
+    color: #a1a7bb;
+}
+
+.dark-mode .profile-user-header {
+    border-bottom-color: #353a50;
+}
+
+.dark-mode .profile-section {
+    border-bottom-color: #353a50;
+}
+
+.dark-mode .profile-back-btn {
+    background: #292e43;
+    border-color: #41465b;
+    color: #e4e6f1;
+}
+
+.dark-mode .profile-back-btn:hover {
+    background: #36304f;
+}
+
+.dark-mode .profile-logout-btn {
+    background: #422b36;
+    color: #ff8585;
+}
+
+.dark-mode .profile-user-header p {
+    color: #a1a7bb;
+}
+
+.dark-mode .profile-avatar {
+    border-color: #393253;
+}
+
+.dark-mode .profile-photo-hint {
+    color: #9299ad;
+}
+
+.dark-mode .profile-role,
+.dark-mode .profile-edit-btn,
+.dark-mode .profile-photo-btn {
+    background: #36304f;
+    color: #c4bcff;
+}
+
+.dark-mode .profile-edit-btn:hover,
+.dark-mode .profile-photo-btn:hover {
+    background: #494064;
+}
+
+.dark-mode .profile-form-group label {
+    color: #c4c8d7;
+}
+
+.dark-mode .profile-form-group input {
+    background: #292e43;
+    border-color: #41465b;
+    color: #f1f2fa;
+}
+
+.dark-mode .profile-form-group input:focus {
+    border-color: #9588ff;
+}
+
+.dark-mode .profile-form-group input:disabled {
+    background: #252a3d;
+    color: #9ba1b4;
+}
+
+.dark-mode .profile-cancel-btn {
+    background: #383d52;
+    color: #e1e3ed;
+}
+
+.dark-mode .profile-cancel-btn:hover {
+    background: #484e65;
+}
+
+.dark-mode .profile-info-row span {
+    color: #a1a7bb;
+}
+
+.dark-mode .profile-info-row strong {
+    color: #e7e9f3;
+}
+
+.dark-mode .profile-success {
+    background: #203d32;
+    color: #79dfa8;
+}
+
+.dark-mode .profile-error {
+    background: #482b35;
+    color: #ff9999;
+}
+
+.dark-mode .profile-google-note {
+    background: #34304f;
+    color: #c4bcff;
+}
+
+.dark-mode .profile-loading {
+    color: #a69aff;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 600px) {
+    .student-profile-page {
+        padding: 22px 13px 40px;
+    }
+
+    .profile-card {
+        padding: 20px 16px;
+    }
+
+    .profile-user-header {
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+    .profile-avatar {
+        width: 78px;
+        height: 78px;
+        font-size: 24px;
+    }
+
+    .profile-user-header h2 {
+        font-size: 17px;
+    }
+
+    .profile-user-header p {
+        font-size: 12px;
+    }
+
+    .profile-heading h1 {
+        font-size: 25px;
+    }
+
+    .profile-section-heading {
+        align-items: flex-start;
+    }
+
+    .profile-info-row {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .profile-photo-btn {
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .profile-user-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-section-heading {
+        flex-direction: column;
+    }
+
+    .profile-action-buttons {
+        flex-wrap: wrap;
+    }
+}
