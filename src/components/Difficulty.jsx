@@ -15,6 +15,7 @@ function Difficulty() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+    // Existing category details
     const categoryInfo = {
         programming: {
             name: "Programming",
@@ -78,7 +79,17 @@ function Difficulty() {
         }
     };
 
-    const currentCategory = categoryInfo[category];
+    // Automatically support newly added categories
+    const currentCategory = categoryInfo[category] || {
+        name: category
+            ? category
+                .split("-")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")
+            : "Quiz",
+        icon: "📚",
+        description: `Test your knowledge and practice ${category?.replaceAll("-", " ")} concepts.`
+    };
 
     // Fetch questions from MongoDB
     useEffect(() => {
@@ -123,27 +134,10 @@ function Difficulty() {
             }
         };
 
-        if (category && currentCategory) {
+        if (category) {
             fetchQuestionCounts();
         }
     }, [category]);
-
-    // Handle invalid category URLs
-    if (!currentCategory) {
-        return (
-            <div className="difficulty-page">
-                <h1>Category not found</h1>
-                <p>Please select a valid quiz category.</p>
-                <Link to="/categories" className="back-link">
-                    ← Browse Categories
-                </Link>
-            </div>
-        );
-    }
-
-    const easyCount = questionCounts.Easy;
-    const mediumCount = questionCounts.Medium;
-    const hardCount = questionCounts.Hard;
 
     return (
         <div className="difficulty-page">
@@ -213,7 +207,9 @@ function Difficulty() {
 
                         <div className="level-info">
                             <span>
-                                📝 {loading ? "Loading..." : `${easyCount} ${easyCount === 1 ? "Question" : "Questions"}`}
+                                📝 {loading
+                                    ? "Loading..."
+                                    : `${questionCounts.Easy} ${questionCounts.Easy === 1 ? "Question" : "Questions"}`}
                             </span>
                             <span>⏱ 2 Minutes</span>
                         </div>
@@ -245,7 +241,9 @@ function Difficulty() {
 
                         <div className="level-info">
                             <span>
-                                📝 {loading ? "Loading..." : `${mediumCount} ${mediumCount === 1 ? "Question" : "Questions"}`}
+                                📝 {loading
+                                    ? "Loading..."
+                                    : `${questionCounts.Medium} ${questionCounts.Medium === 1 ? "Question" : "Questions"}`}
                             </span>
                             <span>⏱ 2 Minutes</span>
                         </div>
@@ -277,7 +275,9 @@ function Difficulty() {
 
                         <div className="level-info">
                             <span>
-                                📝 {loading ? "Loading..." : `${hardCount} ${hardCount === 1 ? "Question" : "Questions"}`}
+                                📝 {loading
+                                    ? "Loading..."
+                                    : `${questionCounts.Hard} ${questionCounts.Hard === 1 ? "Question" : "Questions"}`}
                             </span>
                             <span>⏱ 2 Minutes</span>
                         </div>
