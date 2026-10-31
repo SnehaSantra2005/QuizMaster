@@ -25,8 +25,20 @@ if (!process.env.MONGODB_URI || !process.env.JWT_SECRET) {
 const path = require("path");
 
 // Middleware
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://quiz-master-teal-two.vercel.app",
+    "https://quiz-master-gekc12687-sneha-santras-projects.vercel.app"
+];
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173"
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    }
 }));
 app.use(express.json());
 
