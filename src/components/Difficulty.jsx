@@ -26,7 +26,7 @@ function Difficulty() {
             icon: "🗄️",
             description: "Challenge your database and SQL knowledge."
         },
-        web: {
+        "web-development": {
             name: "Web Development",
             icon: "🌐",
             description: "Test your HTML, CSS and JavaScript knowledge."

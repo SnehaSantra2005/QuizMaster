@@ -50,7 +50,7 @@ function Categories() {
                 "Explore SQL, database design, keys and normalization.",
                 "Core CS"
             ],
-            web: [
+            "web-development": [
                 "🌐",
                 "Test your knowledge of HTML, CSS and JavaScript.",
                 "Development"
@@ -117,8 +117,7 @@ function Categories() {
 
         "Core CS": ["dbms", "os", "cn", "cybersecurity"],
 
-        "Web & AI": ["web", "ml", "datascience"],
-
+        "Web & AI": ["web-development", "ml", "datascience"],
         Aptitude: ["aptitude"]
     };
 
