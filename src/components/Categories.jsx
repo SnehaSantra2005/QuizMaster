@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Categories.css";
+import API_URL from "../api";
 
 function Categories() {
     const [categories, setCategories] = useState([]);
@@ -15,7 +16,7 @@ function Categories() {
         const fetchCategories = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:5000/api/categories"
+                    `${API_URL}/api/categories`
                 );
 
                 if (!response.ok) {

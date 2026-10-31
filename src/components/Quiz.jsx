@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 
 import Result from "./Result";
+import API_URL from "../api";
 
 function Quiz() {
     const { category } = useParams();
@@ -36,7 +37,7 @@ function Quiz() {
                 setQuestions([]);
 
                 const response = await fetch(
-                    `http://localhost:5000/api/questions?category=${encodeURIComponent(category)}&difficulty=${encodeURIComponent(difficulty || "")}`,
+                    `${API_URL}/api/questions?category=${encodeURIComponent(category)}&difficulty=${encodeURIComponent(difficulty || "")}`,
                     { signal: controller.signal }
                 );
 

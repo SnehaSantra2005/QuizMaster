@@ -1,6 +1,7 @@
 
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import API_URL from "../api";
 
 function Difficulty() {
     const { category } = useParams();
@@ -87,7 +88,7 @@ function Difficulty() {
                 setError("");
 
                 const response = await fetch(
-                    `http://localhost:5000/api/questions?category=${encodeURIComponent(category)}`
+                    `${API_URL}/api/questions?category=${encodeURIComponent(category)}`
                 );
 
                 const data = await response.json();

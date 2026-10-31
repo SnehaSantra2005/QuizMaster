@@ -2,10 +2,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
+import API_URL from "../api";
 
-const CATEGORY_API = "http://localhost:5000/api/categories";
-const QUESTION_API = "http://localhost:5000/api/questions";
-const ADMIN_API = "http://localhost:5000/api/admin/admins";
+const CATEGORY_API = `${API_URL}/api/categories`;
+const QUESTION_API = `${API_URL}/api/questions`;
+const ADMIN_API = `${API_URL}/api/admin/admins`;
 const QUESTIONS_PER_PAGE = 5;
 
 const emptyQuestionForm = {

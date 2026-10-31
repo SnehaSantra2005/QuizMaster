@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./QuizHistory.css";
+import API_URL from "../api";
 
 function formatDate(date) {
     if (!date) return "Date unavailable";
@@ -45,7 +46,7 @@ function QuizHistory() {
                 }
 
                 const response = await fetch(
-                    "http://localhost:5000/api/users/attempts",
+                    `${API_URL}/api/users/attempts`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`

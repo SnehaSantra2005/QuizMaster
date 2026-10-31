@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import API_URL from "../api";
 
 function Result({
     score,
@@ -84,7 +85,7 @@ function Result({
 
             try {
                 const response = await fetch(
-                    "http://localhost:5000/api/users/attempts",
+                    `${API_URL}/api/users/attempts`,
                     {
                         method: "POST",
                         headers: {

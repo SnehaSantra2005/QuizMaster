@@ -1,6 +1,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function Home({ darkMode, toggleTheme }) {
     const [categories, setCategories] = useState([]);
@@ -40,7 +41,7 @@ function Home({ darkMode, toggleTheme }) {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/categories")
+        fetch(`${API_URL}/api/categories`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to load categories");

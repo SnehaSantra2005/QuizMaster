@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./StudentProfile.css";
-
-const API_URL = "http://localhost:5000";
+import API_URL from "../api";
 
 function StudentProfile() {
     const navigate = useNavigate();

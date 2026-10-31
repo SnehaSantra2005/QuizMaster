@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import "./UserAuth.css";
+import API_URL from "../api";
 
 function UserLogin() {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ function UserLogin() {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/users/login",
+                `${API_URL}/api/users/login`,
                 {
                     method: "POST",
                     headers: {
@@ -54,7 +55,7 @@ function UserLogin() {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/users/google",
+                `${API_URL}/api/users/google`,
                 {
                     method: "POST",
                     headers: {
